@@ -94,7 +94,7 @@
     "eslint-config-standard": "17.0.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jest": "27.0.4",
-    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-n": "^15.3.0",
     "eslint-plugin-promise": "6.0.1",
     "eslint-plugin-standard": "5.0.0",
     "expect": "29.0.3",
@@ -127,67 +127,6 @@
       "node"
     ]
   },
-  "prettier": {
-    "printWidth": 120,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "all"
-  },
-  "eslintConfig": {
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "ecmaVersion": 2018,
-      "sourceType": "module"
-    },
-    "plugins": [
-      "@typescript-eslint",
-      "jest"
-    ],
-    "env": {
-      "node": true,
-      "es6": true,
-      "jest/globals": true
-    },
-    "extends": [
-      "eslint:recommended",
-      "eslint-config-standard",
-      "plugin:@typescript-eslint/recommended",
-      "prettier"
-    ],
-    "rules": {
-      "@typescript-eslint/explicit-function-return-type": 0,
-      "@typescript-eslint/no-explicit-any": 0,
-      "@typescript-eslint/no-var-requires": 0,
-      "@typescript-eslint/no-namespace": 0,
-      "@typescript-eslint/no-unused-vars": [
-        "warn",
-        {
-          "argsIgnorePattern": "^_",
-          "varsIgnorePattern": "^_",
-          "caughtErrorsIgnorePattern": "^_"
-        }
-      ],
-      "node/no-path-concat": 0,
-      "no-use-before-define": 0
-    },
-    "overrides": [
-      {
-        "files": [
-          "sniff.js",
-          "./src/fixtures/**/*.js"
-        ],
-        "rules": {
-          "@typescript-eslint/no-unused-vars": 0,
-          "@typescript-eslint/no-var-requires": 0,
-          "@typescript-eslint/no-empty-function": 0,
-          "no-empty": 0
-        }
-      }
-    ]
-  },
-  "eslintIgnore": [
-    "build"
-  ],
   "lint-staged": {
     "*.ts": [
       "prettier --write",
