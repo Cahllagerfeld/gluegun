@@ -27,7 +27,12 @@
     "semantic-release": "semantic-release",
     "prepare": "husky install"
   },
-  "author": "Webstone",
+  "author": {
+    "name": "Infinite Red, Inc.",
+    "email": "npm@infinite.red",
+    "url": "https://github.com/infinitered/gluegun"
+  },
+  "contributors": [{"name": "Webstone", "url": "https://github.com/WebstoneHQ"}],
   "files": [
     "docs",
     "bin",
