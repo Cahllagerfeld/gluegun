@@ -2,7 +2,7 @@ import { GluegunToolbox } from '../index'
 import * as CLITable from 'cli-table3'
 import * as importedColors from 'colors'
 import { Toolbox } from '../domain/toolbox'
-import ora = require('ora')
+import ora from 'ora'
 
 export type GluegunPrintColors = typeof importedColors & {
   highlight: (t: string) => string

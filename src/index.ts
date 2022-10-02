@@ -1,7 +1,13 @@
 import * as path from 'path'
 
 // first, do a sniff test to ensure our dependencies are met
-const sniff = require('../sniff')
+import sniff from '../sniff.js'
+import AppModulePath from 'app-module-path'
+
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 // check the node version
 if (!sniff.isNewEnough) {
@@ -40,5 +46,5 @@ export { GluegunMeta } from './core-extensions/meta-extension'
 
 // this adds the node_modules path to the "search path"
 // it's hacky, but it works well!
-require('app-module-path').addPath(path.join(__dirname, '..', 'node_modules'))
-require('app-module-path').addPath(process.cwd())
+AppModulePath.addPath(path.join(__dirname, '..', 'node_modules'))
+AppModulePath.addPath(process.cwd())

@@ -1,5 +1,10 @@
 import { build, GluegunToolbox } from '../index'
 
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+
 /**
  * Create the cli and kick it off
  */

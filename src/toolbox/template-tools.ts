@@ -14,7 +14,7 @@ function buildGenerate(toolbox: GluegunToolbox): (opts: Options) => Promise<stri
    * @return The generated string.
    */
   async function generate(opts: Options = {}): Promise<string> {
-    const ejs = require('ejs')
+    const ejs = await import('ejs')
     // required
     const template = opts.template
 

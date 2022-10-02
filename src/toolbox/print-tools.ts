@@ -1,5 +1,5 @@
-import * as CLITable from 'cli-table3'
-import * as importedColors from 'colors/safe'
+import CLITable from 'cli-table3'
+import importedColors from 'colors'
 import { commandInfo } from './meta-tools'
 import { Toolbox } from '../domain/toolbox'
 import { times } from './utils'

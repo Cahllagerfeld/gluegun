@@ -19,7 +19,7 @@ if (ver[0] >= 8) {
 
 ok = hasAsyncAwait && isNewEnough
 
-module.exports = {
+export default {
   nodeMinimum,
   nodeVersion,
   isNewEnough,
