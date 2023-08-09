@@ -19,8 +19,8 @@ export function loadPluginFromDirectory(directory: string, options: Options = {}
 
   const {
     brand = 'gluegun',
-    commandFilePattern = [`*.{js,ts}`, `!*.test.{js,ts}`],
-    extensionFilePattern = [`*.{js,ts}`, `!*.test.{js,ts}`],
+    commandFilePattern = [`*.{js,ts,cjs}`, `!*.test.{js,ts,cjs}`],
+    extensionFilePattern = [`*.{js,ts,cjs}`, `!*.test.{js,ts,cjs}`],
     hidden = false,
     name,
   } = options
@@ -49,7 +49,13 @@ export function loadPluginFromDirectory(directory: string, options: Options = {}
   plugin.commands = (options.preloadedCommands || []).map(loadCommandFromPreload)
 
   // load the commands found in the commands sub-directory
-  const commandSearchDirectories = ['commands', 'build/commands', 'cli/commands', 'build/cli/commands']
+  const commandSearchDirectories = [
+    'commands',
+    'build/commands',
+    'cli/commands',
+    'build/cli/commands',
+    'dist/cli/commands',
+  ]
   commandSearchDirectories.forEach((dir) => {
     if (jetpackPlugin.exists(dir) === 'dir') {
       const commands = jetpackPlugin.cwd(dir).find({ matching: commandFilePattern, recursive: true })
@@ -61,7 +67,13 @@ export function loadPluginFromDirectory(directory: string, options: Options = {}
   })
 
   // load the extensions found in the extensions sub-directory
-  const extensionSearchDirectories = ['extensions', 'build/extensions', 'cli/extensions', 'build/cli/extensions']
+  const extensionSearchDirectories = [
+    'extensions',
+    'build/extensions',
+    'cli/extensions',
+    'build/cli/extensions',
+    'dist/cli/extensions',
+  ]
   extensionSearchDirectories.forEach((dir) => {
     if (jetpackPlugin.exists(dir) === 'dir') {
       const extensions = jetpackPlugin.cwd(dir).find({ matching: extensionFilePattern, recursive: false })
