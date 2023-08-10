@@ -76,7 +76,7 @@ export function loadPluginFromDirectory(directory: string, options: Options = {}
   ]
   extensionSearchDirectories.forEach((dir) => {
     if (jetpackPlugin.exists(dir) === 'dir') {
-      const extensions = jetpackPlugin.cwd(dir).find({ matching: extensionFilePattern, recursive: false })
+      const extensions = jetpackPlugin.cwd(dir).find({ matching: extensionFilePattern, recursive: true })
 
       plugin.extensions = plugin.extensions.concat(
         extensions.map((file) => loadExtensionFromFile(`${directory}/${dir}/${file}`)),
